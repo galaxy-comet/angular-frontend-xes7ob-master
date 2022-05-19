@@ -1,0 +1,19 @@
+<h3>Search Npm Packages</h3>
+<p><i>Searches when typing stops. Caches for 30 seconds.</i></p>
+<input (keyup)="search($event.target.value)" id="name" placeholder="Search"/>
+<input type="checkbox" id="refresh" [checked]="withRefresh" (click)="toggleRefresh()">
+<label for="refresh">with refresh</label>
+
+<ul>
+  <li *ngFor="let package of packages$ | async">
+    <b>{{package.name}} v.{{package.version}}</b> -
+    <i>{{package.description}}</i>
+  </li>
+</ul>
+
+
+<!-- 
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
